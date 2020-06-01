@@ -9,40 +9,40 @@ ktore podal w zeszlym roku - bo juz sporo rodzin z nami jezdzi od kilku lat i sk
 
 Encje:
 
-Encja - Parent - jako user
-ID
-firstName
-lastName
-phone
-email
-login
-passowrd
+Encja - Parent - jako user <br>
+ID<br>
+firstName<br>
+lastName<br>
+phone<br>
+email<br>
+login<br>
+passowrd<br>
+<br><br>
+Encja - Child (ManyToOne -> Parent)<br>
+ID<br>
+firstName<br>
+lastName<br>
+age - birth date (żeby zostało na inne lata)<br>
+group ( ski OR snowboard ) - radio button?<br>
+skills - select multiple choice<br>
+level - select one (poziom rekusiowy kolor jesli ma)<br>
+description - ogolne uwagi rodziców, z jakich stoków swobodnie zjeżdża,<br>
 
-Encja - Child (ManyToOne -> Parent)
-ID
-firstName
-lastName
-age - birth date (żeby zostało na inne lata)
-group ( ski OR snowboard ) - radio button?
-skills - select multiple choice
-level - select one (poziom rekusiowy kolor jesli ma)
-description - ogolne uwagi rodziców, z jakich stoków swobodnie zjeżdża,
-
-
+<br><br>
 Do tych 2 encji dostep do edycji ma tylko admin i admin je ustawia ale chcialbym zeby user mogl sobie przeczytac description no i user wybiera skille (multiple)
 i levelColor (jeden) z listy podczas dodawania dziecka :)
+<br><br>
+Encja - Skills (ManyToOne -> Child)<br>
+ID<br>
+skillName (hamowanie, kontrola prędkości, pług, skręt równoległy, śmig, czy jezdzi orczykiem/ krzesełkiem + skille snowboardowe)<br>
+description skilla<br>
 
-Encja - Skills (ManyToOne -> Child)
-ID
-skillName (hamowanie, kontrola prędkości, pług, skręt równoległy, śmig, czy jezdzi orczykiem/ krzesełkiem + skille snowboardowe)
-description skilla
-
-Encja - Levels (ManyToOne -> Child)
-ID
-LevelColor - poziom bialy, zielony, czerwony, niebieski, złoty itd... lub brak
-description - opis poziomu
-
-
-
+Encja - Levels (ManyToOne -> Child)<br>
+ID<br>
+LevelColor - poziom bialy, zielony, czerwony, niebieski, złoty itd... lub brak<br>
+description - opis poziomu<br>
+<br>
+Encje ski i snowboard osobno ?
+<br><br>
 Automatyczne tworzenie grup dzieciaków wg koloru poziomu Rekusiowego
 Wyszukiwarka z filtrem dostepna dla Admina - mozliwosc wyszukania dzieci danego rodzica, dzieci w danym wieku, dzieci w danej grupie Rekusiowej, dzieci jezdzacych na nartach/snowboardzie

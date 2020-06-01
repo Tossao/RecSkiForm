@@ -12,6 +12,8 @@
     <title>RECSKI.pl FORM</title>
 </head>
 <body>
-<h1><spring:message code="app.title"/></h1>
+<h1><spring:message code="app.title"/></h1> <br>
+<a href="/user/all"> Go to Users List --->> </a> <br>
+<a href="/parent/all"> Go to Parents List --- >> </a>
 </body>
 </html>
