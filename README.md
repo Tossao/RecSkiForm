@@ -3,22 +3,32 @@
 
 
 Notes:<br>
-I tak wyobrazam sobie to w ten sposob ze na stronie ktora juz istnieje www.recski.pl chcialbym dodac taki formularz do ktorego rodzic( kazdy ma swoje konto) moze sie
-zalogowac (super by bylo jakby mogl to zrobic za pomoca np gmaila) i po zalogowaniu widzi opcje 'dodaj dziecko' i swoja liste dzieci ktora moze edytowac i zmieniac tam dane
-ktore podal w zeszlym roku - bo juz sporo rodzin z nami jezdzi od kilku lat i skill dzieciakow wiadomo rosnie:)
+Wyobrazam sobie to w ten sposob ze na stronie ktora juz istnieje www.recski.pl chcialbym dodac taki formularz do ktorego
+rodzic( kazdy ma swoje konto) moze sie zalogowac (super by bylo jakby mogl to zrobic za pomoca np gmaila) i po zalogowaniu 
+widzi opcje 'dodaj dziecko' i swoja liste dzieci ktora moze edytowac i zmieniac tam dane ktore podal w zeszlym roku - bo 
+juz sporo rodzin z nami jezdzi od kilku lat i skill dzieciakow wiadomo rosnie:)
 
 Encje:
 
-Encja - Parent - jako user <br>
-ID<br>
-firstName<br>
-lastName<br>
-phone<br>
-email<br>
-login<br>
-passowrd<br>
-<br><br>
-Encja - Child (ManyToOne -> Parent)<br>
+Encja - Parent - jako user - Rozdzielilem na dwie encje Parent i User aby jeden user(jedne dane logowania) mogl posiadac 
+dane dwoch rodzicow - mamy i taty // relacja Parent-User ManyToOne<br>
+
+<b>Parent:</b>
+- ID
+- firstName
+- lastName
+- phone
+- email
+
+<b>User:</b>
+- ID
+- login
+- passowrd
+
+///////////////////////////////
+<br>
+
+Encja - Child (ManyToMany -> Parent)<br>
 ID<br>
 firstName<br>
 lastName<br>

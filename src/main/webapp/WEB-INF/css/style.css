@@ -1,0 +1,20 @@
+table, table * {
+    border: 1px solid black;
+    margin-left: 3%;
+}
+
+h1 {
+    color: lawngreen;
+}
+
+h5 {
+    color: grey;
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    margin: 0 -50% 0 0;
+}
+
+img {
+    float: left;
+}

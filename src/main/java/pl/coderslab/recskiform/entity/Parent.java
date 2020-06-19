@@ -18,7 +18,7 @@ public class Parent {
 
     private String email;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
