@@ -14,21 +14,23 @@
     <style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
-<h1><spring:message code="app.title"/></h1> <br>
-    <h2>Add User</h2>
-    <form:form method="POST" modelAttribute="user">
-        Login: <form:input path="login"/>
-        <form:errors path="login"/><br>
+    <h1><spring:message code="app.title"/></h1> <br>
+        <h2>Add User</h2>
+        <form:form method="POST" modelAttribute="user">
+            Login: <form:input path="login" value="Enter Login" onfocus="this.value=''"/>
+            <form:errors path="login"/><br>
 
-        Password: <form:input path="password"/>
-        <form:errors path="password"/><br>
+            Password: <form:password path="password"/>
+            <form:errors path="password"/><br>
 
-        <input type="submit"> <br>
-        <br>
-        <a href="/user/all"> <<--- Back to Users List </a>
-    </form:form>
-<br>
-<br>
-<h5><spring:message code="app.footer"/></h5>
+            <input type="submit"> <br>
+            <br>
+        </form:form>
+    <a href="/user/all"> <<--- Back to Users List </a>
+    <br>
+    <a href="/"> <<<--- Back to HomePage </a><br>
+    <br>
+    <br>
+    <h5><spring:message code="app.footer"/></h5>
 </body>
 </html>

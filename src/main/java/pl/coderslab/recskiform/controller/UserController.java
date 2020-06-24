@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.recskiform.entity.User;
 import pl.coderslab.recskiform.repository.UserRepository;
+import pl.coderslab.recskiform.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,9 +17,21 @@ import java.util.Optional;
 public class UserController {
 
     private final UserRepository userRepository;
+    private final UserService userService;
 
-    public UserController(UserRepository userRepository) {
+    public UserController(UserRepository userRepository, UserService userService) {
         this.userRepository = userRepository;
+        this.userService = userService;
+    }
+
+    @GetMapping("/create-user")
+    @ResponseBody
+    public String createUser() {
+        User user = new User();
+        user.setLogin("admin");
+        user.setPassword("admin");
+        userService.saveUser(user);
+        return "admin";
     }
 
     @GetMapping(value = "/all")

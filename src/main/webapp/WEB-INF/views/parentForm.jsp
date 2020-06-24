@@ -17,16 +17,18 @@
     <h1><spring:message code="app.title"/></h1> <br>
     <h2>Add Parent</h2>
     <form:form method="POST" modelAttribute="parent">
-        Last Name: <form:input path="lastName"/>
+
+        Last Name:
+        <form:input path="lastName" value="Last Name" onfocus="this.value=''"/>
         <form:errors path="lastName"/><br>
 
-        First Name: <form:input path="firstName"/>
+        First Name: <form:input path="firstName" value="First Name" onfocus="this.value=''"/>
         <form:errors path="firstName"/><br>
 
-        Phone Number: <form:input path="phone"/>
+        Phone Number: <form:input path="phone" value="+48600123456" onfocus="this.value=''"/>
         <form:errors path="phone"/><br>
 
-        e-mail: <form:input path="email"/>
+        e-mail: <form:input path="email" value="example@example.pl" onfocus="this.value=''"/>
         <form:errors path="email"/><br>
 
 <%--        User: <form:select path="user" itemLabel="login" itemValue="id" items="${user}"/> <br>--%>
@@ -37,8 +39,11 @@
 
         <input type="submit"> <br>
         <br>
-        <a href="/parent/all"> <<--- Back to Parents List </a>
+
     </form:form>
+    <a href="/parent/all"> <<--- Back to Parents List </a>
+    <br>
+    <a href="/"> <<<--- Back to HomePage </a><br>
     <br>
     <br>
     <h5><spring:message code="app.footer"/></h5>

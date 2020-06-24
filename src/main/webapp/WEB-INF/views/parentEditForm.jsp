@@ -33,8 +33,11 @@
 
         <input type="submit"> <br>
         <br>
-        <a href="/parent/all"> <<--- Back to Users List </a>
+
     </form:form>
+    <a href="/parent/all"> <<--- Back to Users List </a>
+    <br>
+    <a href="/"> <<<--- Back to HomePage </a><br>
     <br>
     <br>
     <h5><spring:message code="app.footer"/></h5>

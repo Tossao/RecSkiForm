@@ -42,12 +42,12 @@ description - ogolne uwagi rodziców, z jakich stoków swobodnie zjeżdża,<br>
 Do tych 2 encji dostep do edycji ma tylko admin i admin je ustawia ale chcialbym zeby user mogl sobie przeczytac description no i user wybiera skille (multiple)
 i levelColor (jeden) z listy podczas dodawania dziecka :)
 <br><br>
-Encja - Skills (ManyToOne -> Child)<br>
+Encja - Skills (ManyToMany -> Child)<br>
 ID<br>
 skillName (hamowanie, kontrola prędkości, pług, skręt równoległy, śmig, czy jezdzi orczykiem/ krzesełkiem + skille snowboardowe)<br>
 description skilla<br>
 
-Encja - Levels (ManyToOne -> Child)<br>
+Encja - Levels (ManyToMany -> Child)<br>
 ID<br>
 LevelColor - poziom bialy, zielony, czerwony, niebieski, złoty itd... lub brak<br>
 description - opis poziomu<br>
