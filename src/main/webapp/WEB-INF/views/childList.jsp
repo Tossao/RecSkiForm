@@ -38,12 +38,8 @@
                 <td><c:out value="${child.lastName}"/></td>
                 <td><c:out value="${child.firstName}"/></td>
                 <td><c:out value="${child.birthDate}"/></td>
-
-                <td><c:forEach items="${child.styles}" var="styles">
-                    <c:out value="${styles.styleName}"/></c:forEach></td>
-
-                <td><c:forEach items="${child.levels}" var="levels">
-                    <c:out value="${levels.levelColor}"/></c:forEach></td>
+                <td><c:out value="${child.style}"/></td>
+                <td><c:out value="${child.level}"/></td>
 
                 <td><c:forEach items="${child.skills}" var="skills">
                     <c:out value="${skills.skillName}"/></c:forEach></td>

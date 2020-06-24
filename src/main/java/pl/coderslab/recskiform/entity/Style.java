@@ -1,7 +1,6 @@
 package pl.coderslab.recskiform.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -24,8 +23,10 @@ public class Style {
     @Column(columnDefinition = "TEXT")
     private String styleDescription;
 
-    @ManyToMany(mappedBy = "styles")
-    private List<Child> childStyle = new ArrayList<>();
+
+
+
+
 
     public Long getId() {
         return id;
@@ -51,13 +52,6 @@ public class Style {
         this.styleDescription = styleDescription;
     }
 
-    public List<Child> getChildStyle() {
-        return childStyle;
-    }
-
-    public void setChildStyle(List<Child> childStyle) {
-        this.childStyle = childStyle;
-    }
 
     @Override
     public String toString() {
@@ -65,7 +59,6 @@ public class Style {
                 "id=" + id +
                 ", styleName='" + styleName + '\'' +
                 ", styleDescription='" + styleDescription + '\'' +
-                ", childStyle=" + childStyle +
                 '}';
     }
 }

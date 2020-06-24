@@ -3,10 +3,7 @@ package pl.coderslab.recskiform.entity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -46,17 +43,19 @@ public class Child {
             inverseJoinColumns = @JoinColumn(name = "skills_id"))
     private List<Skill> skills = new ArrayList<>();
 
-    @NotEmpty
-    @ManyToMany
-    @JoinTable(name = "child_style", joinColumns = @JoinColumn(name = "child_id"),
-            inverseJoinColumns = @JoinColumn(name = "style_id"))
-    private List<Style> styles = new ArrayList<>();
+    @NotBlank
+    @ManyToOne
+    @JoinColumn(name = "style_id")
+    private Style style;
 
-    @NotEmpty
-    @ManyToMany
-    @JoinTable(name = "child_levels", joinColumns = @JoinColumn(name = "child_id"),
-            inverseJoinColumns = @JoinColumn(name = "levels_id"))
-    private List<Level> levels = new ArrayList<>();
+    @NotBlank
+    @ManyToOne
+    @JoinColumn(name = "level_id")
+    private Level level;
+
+
+
+
 
 
     @Column(columnDefinition = "TEXT")
@@ -118,20 +117,20 @@ public class Child {
         this.skills = skills;
     }
 
-    public List<Level> getLevels() {
-        return levels;
+    public Style getStyle() {
+        return style;
     }
 
-    public void setLevels(List<Level> levels) {
-        this.levels = levels;
+    public void setStyle(Style style) {
+        this.style = style;
     }
 
-    public List<Style> getStyles() {
-        return styles;
+    public Level getLevel() {
+        return level;
     }
 
-    public void setStyles(List<Style> styles) {
-        this.styles = styles;
+    public void setLevel(Level level) {
+        this.level = level;
     }
 
     public String getChildDescription() {
@@ -152,8 +151,8 @@ public class Child {
                 ", user=" + user +
                 ", parents=" + parents +
                 ", skills=" + skills +
-                ", styles=" + styles +
-                ", levels=" + levels +
+                ", style=" + style +
+                ", level=" + level +
                 ", childDescription='" + childDescription + '\'' +
                 '}';
     }

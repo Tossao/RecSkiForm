@@ -23,8 +23,7 @@ public class Level {
     @Column(columnDefinition = "TEXT")
     private String levelDescription;
 
-    @ManyToMany(mappedBy = "levels")
-    private List<Child> childLevels = new ArrayList<>();
+
 
     public Long getId() {
         return id;
@@ -50,21 +49,12 @@ public class Level {
         this.levelDescription = levelDescription;
     }
 
-    public List<Child> getChildLevels() {
-        return childLevels;
-    }
-
-    public void setChildLevels(List<Child> childLevels) {
-        this.childLevels = childLevels;
-    }
-
     @Override
     public String toString() {
         return "Level{" +
                 "id=" + id +
                 ", levelColor='" + levelColor + '\'' +
                 ", levelDescription='" + levelDescription + '\'' +
-                ", childLevels=" + childLevels +
                 '}';
     }
 }

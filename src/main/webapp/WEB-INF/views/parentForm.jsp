@@ -33,9 +33,10 @@
 
 <%--        User: <form:select path="user" itemLabel="login" itemValue="id" items="${user}"/> <br>--%>
         User:<form:select path="user">
-        <form:option value="-" label="--Please Select--"/>
+        <form:option value="-" label="--Please Select One--"/>
         <form:options itemLabel="login" itemValue="id" items="${user}"/>
-    </form:select>
+        </form:select>
+        <form:errors path="user"/><br>
 
         <input type="submit"> <br>
         <br>

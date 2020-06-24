@@ -43,8 +43,8 @@
         Description: <form:input path="childDescription"/>
         <form:errors path="childDescription"/><br>
 
-        User: <form:input path="user"/>
-        <form:errors path="user"/><br>
+<%--        User: <form:input path="user"/>--%>
+<%--        <form:errors path="user"/><br>--%>
 
         <input type="submit"> <br>
         <br>
