@@ -29,31 +29,22 @@
     Birth Date: <form:input path="birthDate" value="yyyy-MM-dd" onfocus="this.value=''"/>
     <form:errors path="birthDate"/><br>
 
-    Style:<form:select path="style">
-    <form:option value="-" label="--Please Select One--"/>
-    <form:options itemLabel="styleName" itemValue="id" items="${style}"/>
-    </form:select>
-    <form:errors path="style"/><br>
+    Style:<form:select path="style" itemLabel="styleName" itemValue="id" items="${style}"/>
+        <form:errors path="style"/><br>
 
-    RecSki.pl Color Level:<form:select path="level">
-    <form:option value="-" label="--Please Select One--"/>
-    <form:options itemLabel="levelColor" itemValue="id" items="${level}"/>
-    </form:select>
+    RecSki.pl Color Level:<form:select path="level" itemLabel="levelColor" itemValue="id" items="${level}"/>
     <form:errors path="level"/><br>
 
-    <%--        Skills:(multiple choice) <form:input path="skills"/>--%>
-    <%--        <form:errors path="skills"/><br>--%>
+    Skills: <form:checkboxes path="skills" items="${skill}" itemLabel="skillName" itemValue="id"/>
+    <form:errors path="skills"/><br>
 
-    <%--        Parent:(multiple choice) <form:input path="parents"/>--%>
-    <%--        <form:errors path="parents"/><br>--%>
+    Parents: <form:select path="parents" items="${parent}" itemLabel="lastName" itemValue="id" multiple="true" />
+    <form:errors path="parents"/><br>
 
     Description: <br><form:textarea path="childDescription" rows="10" cols="40"/>
     <form:errors path="childDescription"/><br>
 
-    User:<form:select path="user">
-    <form:option value="-" label="--Please Select One--"/>
-    <form:options itemLabel="login" itemValue="id" items="${user}"/>
-    </form:select>
+    User:<form:select path="user" itemLabel="login" itemValue="id" items="${user}"/>
     <form:errors path="user"/><br>
 
     <input type="submit"> <br>

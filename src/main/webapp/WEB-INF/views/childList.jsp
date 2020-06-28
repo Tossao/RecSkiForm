@@ -1,5 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: marci
@@ -32,20 +34,24 @@
             <th>EDIT</th>
             <th>DELETE</th>
         </tr>
+
         <c:forEach items="${childs}" var="child">
             <tr>
                 <td><c:out value="${child.id}"/></td>
                 <td><c:out value="${child.lastName}"/></td>
                 <td><c:out value="${child.firstName}"/></td>
-                <td><c:out value="${child.birthDate}"/></td>
-                <td><c:out value="${child.style}"/></td>
-                <td><c:out value="${child.level}"/></td>
+
+                <td><fmt:formatDate value="${child.birthDate}" pattern="yyyy-MM-dd"/></td>
+
+
+                <td><c:out value="${child.style.styleName}"/></td>
+                <td><c:out value="${child.level.levelColor}"/></td>
 
                 <td><c:forEach items="${child.skills}" var="skills">
                     <c:out value="${skills.skillName}"/></c:forEach></td>
 
                 <td><c:forEach items="${child.parents}" var="parents">
-                    <c:out value="${parents.lastName}"/></c:forEach></td>
+                    <c:out value="${parents.firstName}"/></c:forEach></td>
 
                 <td><c:out value="${child.childDescription}"/></td>
 

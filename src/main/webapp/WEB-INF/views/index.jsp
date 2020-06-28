@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>RECSKI.pl FORM</title>
@@ -47,7 +49,31 @@
 <a href="/level/all"> Go to Levels List --- >> </a><br>
 <br>
 
-
+<h3> Last 5 added childs:</h3>
+<table>
+    <tbody>
+    <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Birth Date</th>
+        <th>Ski / Snowboard</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <c:forEach items="${childIndexList}" var="child">
+        <tr>
+            <td><c:out value="${child.lastName}"/></td>
+            <td><c:out value="${child.firstName}"/></td>
+            <td><fmt:formatDate value="${child.birthDate}" pattern="yyyy-MM-dd"/></td>
+            <td><c:out value="${child.style.styleName}"/></td>
+            <td><a href="/child/editChildForm/${child.id}">Update</a></td>
+            <td><a href="/child/delete/${child.id}">Delete</a></td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+<br>
+<br>
 
 
 

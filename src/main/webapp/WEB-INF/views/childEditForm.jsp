@@ -17,7 +17,6 @@
     <h1><spring:message code="app.title"/></h1> <br>
     <h2>Edit Child</h2>
 
-
     <form:form method="POST" modelAttribute="child">
         Last Name: <form:input path="lastName"/>
         <form:errors path="lastName"/><br>
@@ -28,23 +27,29 @@
         Birth Date: <form:input path="birthDate"/>
         <form:errors path="birthDate"/><br>
 
-        <%--        Group:(radio button) <form:input path="groups"/>--%>
-        <%--        <form:errors path="groups"/><br>--%>
+        Style:<form:select path="style">
+        <form:options itemLabel="styleName" itemValue="id" items="${style}"/>
+    </form:select>
+        <form:errors path="style"/><br>
 
-        <%--        RecSki Color Level: <form:input path="levels"/>--%>
-        <%--        <form:errors path="levels"/><br>--%>
+        RecSki.pl Color Level:<form:select path="level">
+        <form:options itemLabel="levelColor" itemValue="id" items="${level}"/>
+    </form:select>
+        <form:errors path="level"/><br>
 
-        <%--        Skills:(multiple choice) <form:input path="skills"/>--%>
-        <%--        <form:errors path="skills"/><br>--%>
+        Skills: <form:checkboxes path="skills" items="${skill}" itemLabel="skillName" itemValue="id"/>
+        <form:errors path="skills"/><br>
 
-        <%--        Parent:(multiple choice) <form:input path="parents"/>--%>
-        <%--        <form:errors path="parents"/><br>--%>
+        Parents: <form:select path="parents" items="${parent}" itemLabel="lastName" itemValue="id" multiple="true" />
+        <form:errors path="parents"/><br>
 
-        Description: <form:input path="childDescription"/>
+        Description: <br><form:textarea path="childDescription" rows="10" cols="40"/>
         <form:errors path="childDescription"/><br>
 
-<%--        User: <form:input path="user"/>--%>
-<%--        <form:errors path="user"/><br>--%>
+        User:<form:select path="user">
+        <form:options itemLabel="login" itemValue="id" items="${user}"/>
+    </form:select>
+        <form:errors path="user"/><br>
 
         <input type="submit"> <br>
         <br>

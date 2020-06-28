@@ -5,10 +5,12 @@ table, table * {
 
 h1 {
     color: lawngreen;
+    margin-left: 2%;
+    margin-top: 2%;
 }
 
 h3 {
-    text-align: center;
+    margin-left: 3%;
 }
 
 h5 {
@@ -21,4 +23,8 @@ h5 {
 
 img {
     float: left;
+}
+
+a {
+    margin-left: 3%;
 }

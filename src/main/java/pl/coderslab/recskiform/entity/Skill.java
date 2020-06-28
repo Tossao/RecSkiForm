@@ -23,8 +23,8 @@ public class Skill {
     @Column(columnDefinition = "TEXT")
     private String skillDescription;
 
-    @ManyToMany(mappedBy = "skills")
-    private List<Child> childSkills = new ArrayList<>();
+//    @ManyToMany(mappedBy = "skills")
+//    private List<Child> childSkills = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -50,13 +50,13 @@ public class Skill {
         this.skillDescription = skillDescription;
     }
 
-    public List<Child> getChildSkills() {
-        return childSkills;
-    }
-
-    public void setChildSkills(List<Child> childSkills) {
-        this.childSkills = childSkills;
-    }
+//    public List<Child> getChildSkills() {
+//        return childSkills;
+//    }
+//
+//    public void setChildSkills(List<Child> childSkills) {
+//        this.childSkills = childSkills;
+//    }
 
     @Override
     public String toString() {
@@ -64,7 +64,7 @@ public class Skill {
                 "id=" + id +
                 ", skillName='" + skillName + '\'' +
                 ", skillDescription='" + skillDescription + '\'' +
-                ", childSkills=" + childSkills +
+//                ", childSkills=" + childSkills +
                 '}';
     }
 }

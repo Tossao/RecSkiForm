@@ -27,14 +27,13 @@ public class Parent {
     @Email
     private String email;
 
-    @NotBlank
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
 
-    @ManyToMany(mappedBy = "parents")
-    private List<Child> childParents = new ArrayList<>();
+//    @ManyToMany(mappedBy = "parents")
+//    private List<Child> childParents = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -84,13 +83,13 @@ public class Parent {
         this.user = user;
     }
 
-    public List<Child> getChildParents() {
-        return childParents;
-    }
-
-    public void setChildParents(List<Child> childParents) {
-        this.childParents = childParents;
-    }
+//    public List<Child> getChildParents() {
+//        return childParents;
+//    }
+//
+//    public void setChildParents(List<Child> childParents) {
+//        this.childParents = childParents;
+//    }
 
     @Override
     public String toString() {
@@ -101,7 +100,7 @@ public class Parent {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", user=" + user +
-                ", childParents=" + childParents +
+//                ", childParents=" + childParents +
                 '}';
     }
 }

@@ -21,6 +21,18 @@ public class SkillController {
         this.skillRepository = skillRepository;
     }
 
+    @RequestMapping("/populate")
+    @ResponseBody
+    public String populateWithSkills(){
+        for (int i= 1; i < 8; i++) {
+            Skill skill = new Skill();
+            skill.setSkillName("skill"+i);
+            skill.setSkillDescription("opis skilla posiadanej umiejetnosci"+i);
+            skillRepository.save(skill);
+        }
+        return "dodano testowe skille";
+    }
+
     @GetMapping(value = "/all")
     public String getAllSkills (Model model){
         List<Skill> skillList = skillRepository.findAll();

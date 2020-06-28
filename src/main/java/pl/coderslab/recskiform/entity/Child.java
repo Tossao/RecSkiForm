@@ -1,5 +1,6 @@
 package pl.coderslab.recskiform.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -25,6 +26,8 @@ public class Child {
     private String lastName;
 
     @Past
+    @NotNull
+  //  @Pattern(regexp = "[0-9]{4}-[0-1][0-9]-[0-3][0-9]", message = "Wprowadź poprawny format daty: yyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
 
@@ -32,7 +35,6 @@ public class Child {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @NotEmpty
     @ManyToMany
     @JoinTable(name = "child_parents", joinColumns = @JoinColumn(name = "child_id"),
             inverseJoinColumns = @JoinColumn(name = "parents_id"))
@@ -43,23 +45,19 @@ public class Child {
             inverseJoinColumns = @JoinColumn(name = "skills_id"))
     private List<Skill> skills = new ArrayList<>();
 
-    @NotBlank
     @ManyToOne
     @JoinColumn(name = "style_id")
     private Style style;
 
-    @NotBlank
     @ManyToOne
     @JoinColumn(name = "level_id")
     private Level level;
 
-
-
-
-
-
     @Column(columnDefinition = "TEXT")
     private String childDescription;
+
+
+
 
     public Long getId() {
         return id;

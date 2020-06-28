@@ -6,7 +6,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.recskiform.entity.User;
 import pl.coderslab.recskiform.repository.UserRepository;
-import pl.coderslab.recskiform.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -17,22 +16,25 @@ import java.util.Optional;
 public class UserController {
 
     private final UserRepository userRepository;
-    private final UserService userService;
 
-    public UserController(UserRepository userRepository, UserService userService) {
+
+    public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.userService = userService;
     }
 
-    @GetMapping("/create-user")
+    @RequestMapping("/populate")
     @ResponseBody
-    public String createUser() {
-        User user = new User();
-        user.setLogin("admin");
-        user.setPassword("admin");
-        userService.saveUser(user);
-        return "admin";
+    public String populateWithUsers(){
+        for (int i= 1; i < 5; i++) {
+            User user = new User();
+            user.setLogin("user"+i);
+            user.setPassword("password"+i);
+            userRepository.save(user);
+        }
+        return "dodano testowych userow";
     }
+
+
 
     @GetMapping(value = "/all")
     public String getAllParents (Model model) {

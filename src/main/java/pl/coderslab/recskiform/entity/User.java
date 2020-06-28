@@ -1,7 +1,10 @@
 package pl.coderslab.recskiform.entity;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -24,10 +27,6 @@ public class User {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
-
-
-
-
 
     public Long getId() {
         return id;

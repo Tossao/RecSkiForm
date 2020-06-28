@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.recskiform.entity.Level;
 import pl.coderslab.recskiform.entity.Parent;
 import pl.coderslab.recskiform.entity.User;
 import pl.coderslab.recskiform.repository.ParentRepository;
@@ -24,6 +25,7 @@ public class ParentController {
         this.parentRepository = parentRepository;
         this.userRepository = userRepository;
     }
+
 
     @GetMapping(value = "/all")
     public String getAllParents (Model model){

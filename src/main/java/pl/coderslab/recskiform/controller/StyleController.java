@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.recskiform.entity.Level;
 import pl.coderslab.recskiform.entity.Style;
 import pl.coderslab.recskiform.repository.StyleRepository;
 
@@ -19,6 +20,18 @@ public class StyleController {
 
     public StyleController(StyleRepository styleRepository) {
         this.styleRepository = styleRepository;
+    }
+
+    @RequestMapping("/populate")
+    @ResponseBody
+    public String populateWithStyle(){
+        for (int i= 1; i < 3; i++) {
+            Style style = new Style();
+            style.setStyleName("style ski or snowboard"+i);
+            style.setStyleDescription("opis stylu na czym ziomalek jezdzi"+i);
+            styleRepository.save(style);
+        }
+        return "dodano testowe style";
     }
 
     @GetMapping(value = "/all")

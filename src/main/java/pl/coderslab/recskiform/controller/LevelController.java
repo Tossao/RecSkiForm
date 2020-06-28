@@ -21,6 +21,18 @@ public class LevelController {
         this.levelRepository = levelRepository;
     }
 
+    @RequestMapping("/populate")
+    @ResponseBody
+    public String populateWithLevel(){
+        for (int i= 1; i < 5; i++) {
+            Level level = new Level();
+            level.setLevelColor("color"+i);
+            level.setLevelDescription("opis poziomu zdobytego poziomu jako kolor"+i);
+            levelRepository.save(level);
+        }
+        return "dodano testowe levele";
+    }
+
     @GetMapping(value = "/all")
     public String getAllLevels (Model model){
         List<Level> levelList = levelRepository.findAll();

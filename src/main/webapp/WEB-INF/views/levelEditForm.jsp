@@ -16,6 +16,7 @@
 <body>
     <h1><spring:message code="app.title"/></h1> <br>
     <h2>Edit Level</h2>
+
     <form:form method="POST" modelAttribute="level">
         Level Color: <form:input path="levelColor"/>
         <form:errors path="levelColor"/><br>
