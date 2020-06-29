@@ -1,18 +1,17 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <%--
   Created by IntelliJ IDEA.
   User: marci
-  Date: 20.06.2020
-  Time: 11:22
+  Date: 29.06.2020
+  Time: 19:33
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Child List</title>
+    <title>Childs By Style</title>
     <style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
@@ -21,11 +20,10 @@
     <table>
         <tbody>
         <tr>
-            <th>ID</th>
+            <th>SKI / SNOWBOARD</th>
             <th>LAST NAME</th>
             <th>FIRST NAME</th>
             <th>BIRTH DATE</th>
-            <th>SKI / SNOWBOARD</th>
             <th>RECSKI LEVEL</th>
             <th>SKILLS</th>
             <th>PARENTS</th>
@@ -35,16 +33,14 @@
             <th>DELETE</th>
         </tr>
 
-        <c:forEach items="${childs}" var="child">
+        <c:forEach items="${childStyle}" var="child">
             <tr>
-                <td><c:out value="${child.id}"/></td>
+                <td><c:out value="${child.style.styleName}"/></td>
                 <td><c:out value="${child.lastName}"/></td>
                 <td><c:out value="${child.firstName}"/></td>
 
                 <td><fmt:formatDate value="${child.birthDate}" pattern="yyyy-MM-dd"/></td>
 
-
-                <td><c:out value="${child.style.styleName}"/></td>
                 <td><c:out value="${child.level.levelColor}"/></td>
 
                 <td><c:forEach items="${child.skills}" var="skills">
@@ -62,16 +58,14 @@
             </tr>
         </c:forEach>
         </tbody>
+
+        <br>
+        <br>
+        <a href="/"> <<<--- Back to HomePage </a><br>
+        <br>
+        <a href="/child/all"> To All Child List --->>> </a>
+
     </table>
-    <br>
-    <br>
-
-    <a href="/child/addChildForm/"> +++ Add new Child +++ </a> <br>
-    <br>
-    <a href="/"> <<<--- Back to HomePage </a><br>
-
-    <br>
-    <br>
     <p class="footer"><spring:message code="app.footer"/></p>
 </body>
 </html>

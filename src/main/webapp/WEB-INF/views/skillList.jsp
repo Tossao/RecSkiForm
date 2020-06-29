@@ -44,6 +44,6 @@
 
     <br>
     <br>
-    <h5><spring:message code="app.footer"/></h5>
+    <p class="footer"><spring:message code="app.footer"/></p>
 </body>
 </html>

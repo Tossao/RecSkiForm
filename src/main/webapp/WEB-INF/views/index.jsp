@@ -18,7 +18,7 @@
 <h1><spring:message code="app.title"/></h1> <br>
 <br>
 <br>
-
+<img src="https://www.recski.pl/images/2016/09/12/2019_Rusin_1920_.jpg" class="indexRecskiImg" alt="Recski Team"/>
 
 <a href="/user/addUserForm/"> +++ Add new User +++ </a> <br>
 <a href="/user/all"> Go to Users List --->> </a> <br>
@@ -48,9 +48,10 @@
 <a href="/level/addLevelForm/"> +++ Add new Level +++ </a> <br>
 <a href="/level/all"> Go to Levels List --- >> </a><br>
 <br>
-
+<br>
+<br>
 <h3> Last 5 added childs:</h3>
-<table>
+<table class="indexLast5addedChilds">
     <tbody>
     <tr>
         <th>Last Name</th>
@@ -72,16 +73,36 @@
     </c:forEach>
     </tbody>
 </table>
+
+<table class="indexStyleChildTable">
+    <tbody>
+    <tr>
+        <th>Child List by Style</th>
+    </tr>
+    <c:forEach items="${style}" var="style">
+        <tr>
+            <td><a href="<c:url value="child/styleTable/${style.id}"/>">${style.styleName}</a></td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+<table class="indexLevelChildTable">
+    <tbody>
+    <tr>
+        <th>Child List by Level</th>
+    </tr>
+    <c:forEach items="${level}" var="level">
+        <tr>
+            <td><a href="<c:url value="child/levelTable/${level.id}"/>">${level.levelColor}</a></td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
 <br>
 <br>
 
-
-
-
-
-<br>
-<br>
-<h5><spring:message code="app.footer"/></h5>
+<p class="footer"><spring:message code="app.footer"/></p>
 
 </body>
 </html>

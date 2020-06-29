@@ -13,12 +13,12 @@ h3 {
     margin-left: 3%;
 }
 
-h5 {
-    color: grey;
-    position: absolute;
+.footer {
+    color: darkorange;
+    position:fixed;
     bottom:0;
-    left: 45%;
-    margin: 0 -50% 0 0;
+    height:2%;
+    margin-left: 45%;
 }
 
 img {
@@ -28,3 +28,30 @@ img {
 a {
     margin-left: 3%;
 }
+
+.indexLast5addedChilds {
+    border: 1px solid black;
+    margin-bottom: 5%;
+    float: left;
+}
+
+.indexStyleChildTable {
+    border: 1px solid black;
+    float: left;
+}
+
+.indexLevelChildTable {
+    border: 1px solid black;
+    float: left;
+}
+
+.indexRecskiImg {
+    float: right;
+    width: 672px;
+    height: 366px;
+    margin-right: 33%;
+}
+
+
+
+

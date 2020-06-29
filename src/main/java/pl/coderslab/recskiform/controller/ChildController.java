@@ -1,5 +1,6 @@
 package pl.coderslab.recskiform.controller;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,7 +33,7 @@ public class ChildController {
     }
 
     @GetMapping(value = "/all")
-    public String getAllChilds (Model model){
+    public String getAllChilds(Model model) {
         List<Child> childList = childRepository.findAll();
         model.addAttribute("childs", childList);
         return "childList";
@@ -54,7 +55,7 @@ public class ChildController {
     }
 
     @RequestMapping(value = "editChildForm/{id}", method = RequestMethod.GET)
-    public String getEditChildForm(Model model, @PathVariable long id) throws Exception{
+    public String getEditChildForm(Model model, @PathVariable long id) throws Exception {
         Optional<Child> byId = childRepository.findById(id);
         Child child = byId.orElseThrow(Exception::new);
         model.addAttribute("child", child);
@@ -78,6 +79,24 @@ public class ChildController {
         childRepository.delete(child);
         String backLink = "<html><br><a href=\"/child/all\"> <<--- Back to Childs List </a></html>";
         return "Skasowano Dziecko: " + child.getLastName() + " " + child.getFirstName() + backLink;
+    }
+
+    @GetMapping("/styleTable/{id}")
+    public String findAllByStyle(@PathVariable Long id, Model model) throws Exception {
+        Optional<Style> styleOptional = styleRepository.findById(id);
+        Style style = styleOptional.orElseThrow(Exception::new);
+        List<Child> childList = childRepository.findByStyle(style);
+        model.addAttribute("childStyle", childList);
+        return "childStyle";
+    }
+
+    @GetMapping("/levelTAble/{id}")
+    public String findAllChildsByLevel(@PathVariable Long id, Model model) throws Exception {
+        Optional<Level> levelOptional = levelRepository.findById(id);
+        Level level = levelOptional.orElseThrow(Exception::new);
+        List<Child> childList = childRepository.findByLevel(level);
+        model.addAttribute("childLevel" , childList);
+        return "childLevel";
     }
 
     @ModelAttribute("style")
@@ -104,9 +123,6 @@ public class ChildController {
     public List<User> userList() {
         return userRepository.findAll();
     }
-
-
-
 
 
 }
