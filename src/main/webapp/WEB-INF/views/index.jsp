@@ -18,6 +18,7 @@
 <h1><spring:message code="app.title"/></h1> <br>
 <br>
 <br>
+<div id="indexLinks">
 <img src="https://www.recski.pl/images/2016/09/12/2019_Rusin_1920_.jpg" class="indexRecskiImg" alt="Recski Team"/>
 
 <a href="/user/addUserForm/"> +++ Add new User +++ </a> <br>
@@ -48,8 +49,16 @@
 <a href="/level/addLevelForm/"> +++ Add new Level +++ </a> <br>
 <a href="/level/all"> Go to Levels List --- >> </a><br>
 <br>
+
+
+<a href="/team/addTeamForm/"> +++ Add new Team +++ </a> <br>
+<a href="/team/all"> Go to Teams List --- >> </a><br>
+
+</div>
 <br>
 <br>
+<br>
+<div id="indexTables">
 <h3> Last 5 added childs:</h3>
 <table class="indexLast5addedChilds">
     <tbody>
@@ -99,6 +108,7 @@
     </c:forEach>
     </tbody>
 </table>
+</div>
 <br>
 <br>
 

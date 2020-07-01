@@ -22,16 +22,27 @@ public class StyleController {
         this.styleRepository = styleRepository;
     }
 
-    @RequestMapping("/populate")
+    @RequestMapping("/fill")
     @ResponseBody
     public String populateWithStyle(){
-        for (int i= 1; i < 3; i++) {
-            Style style = new Style();
-            style.setStyleName("style ski or snowboard"+i);
-            style.setStyleDescription("opis stylu na czym ziomalek jezdzi"+i);
-            styleRepository.save(style);
-        }
-        return "dodano testowe style";
+//        for (int i= 1; i < 3; i++) {
+//            Style style = new Style();
+//            style.setStyleName("style ski or snowboard"+i);
+//            style.setStyleDescription("opis stylu na czym ziomalek jezdzi"+i);
+//            styleRepository.save(style);
+//        }
+//        return "dodano testowe style";
+        Style skiStyle = new Style();
+        skiStyle.setStyleName("Narty");
+        skiStyle.setStyleDescription("Grupa dzieci do nauki jazdy na nartach");
+        styleRepository.save(skiStyle);
+
+        Style snowboardStyle = new Style();
+        snowboardStyle.setStyleName("Snowboard");
+        snowboardStyle.setStyleDescription("Grupa dzieci do nauki jazdy na snowboardzie.");
+        styleRepository.save(snowboardStyle);
+        String backLink = "<html><br><a href=\"/style/all\"> <<--- Powrot do listy Styli </a></html>";
+        return "dodano style" + backLink;
     }
 
     @GetMapping(value = "/all")
@@ -79,7 +90,7 @@ public class StyleController {
         Optional<Style> byId = styleRepository.findById(id);
         Style style = byId.orElseThrow(Exception::new);
         styleRepository.delete(style);
-        String backLink = "<html><br><a href=\"/style/all\"> <<--- Back to Styles List </a></html>";
+        String backLink = "<html><br><a href=\"/style/all\"> <<--- Powrot do listy Styli </a></html>";
         return "Skasowano Styl: " + style.getStyleName() + backLink;
     }
 }

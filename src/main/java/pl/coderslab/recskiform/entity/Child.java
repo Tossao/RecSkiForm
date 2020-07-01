@@ -32,6 +32,10 @@ public class Child {
     private Date birthDate;
 
     @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team team;
+
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -57,7 +61,30 @@ public class Child {
     private String childDescription;
 
 
+    public Team getTeam() {
+        return team;
+    }
 
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    @Override
+    public String toString() {
+        return "Child{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthDate=" + birthDate +
+                ", team=" + team +
+                ", user=" + user +
+                ", parents=" + parents +
+                ", skills=" + skills +
+                ", style=" + style +
+                ", level=" + level +
+                ", childDescription='" + childDescription + '\'' +
+                '}';
+    }
 
     public Long getId() {
         return id;
@@ -139,19 +166,4 @@ public class Child {
         this.childDescription = childDescription;
     }
 
-    @Override
-    public String toString() {
-        return "Child{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthDate=" + birthDate +
-                ", user=" + user +
-                ", parents=" + parents +
-                ", skills=" + skills +
-                ", style=" + style +
-                ", level=" + level +
-                ", childDescription='" + childDescription + '\'' +
-                '}';
-    }
 }

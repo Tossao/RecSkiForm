@@ -21,16 +21,57 @@ public class LevelController {
         this.levelRepository = levelRepository;
     }
 
-    @RequestMapping("/populate")
+    @RequestMapping("/fill")
     @ResponseBody
     public String populateWithLevel(){
-        for (int i= 1; i < 5; i++) {
-            Level level = new Level();
-            level.setLevelColor("color"+i);
-            level.setLevelDescription("opis poziomu zdobytego poziomu jako kolor"+i);
-            levelRepository.save(level);
-        }
-        return "dodano testowe levele";
+//        for (int i= 1; i < 5; i++) {
+//            Level level = new Level();
+//            level.setLevelColor("color"+i);
+//            level.setLevelDescription("opis poziomu zdobytego poziomu jako kolor"+i);
+//            levelRepository.save(level);
+//        }
+        Level levelWhite = new Level();
+        levelWhite.setLevelColor("Poziom bialy");
+        levelWhite.setLevelDescription("Na tym poziomie Skrecamy Plugiem");
+        levelRepository.save(levelWhite);
+
+        Level levelGreen = new Level();
+        levelGreen.setLevelColor("Poziom zielony");
+        levelGreen.setLevelDescription("Na tym poziomie laczymy narty w momencie skretu");
+        levelRepository.save(levelGreen);
+
+        Level levelBlue = new Level();
+        levelBlue.setLevelColor("Poziom niebieski");
+        levelBlue.setLevelDescription("Na tym poziomie slizgamy sie rownolegle");
+        levelRepository.save(levelBlue);
+
+        Level levelRed = new Level();
+        levelRed.setLevelColor("Poziom czerwony");
+        levelRed.setLevelDescription("Na tym poziomie zaczynamy jezdzic na krawedziach");
+        levelRepository.save(levelRed);
+
+        Level levelBlack = new Level();
+        levelBlack.setLevelColor("Poziom czarny");
+        levelBlack.setLevelDescription("Na tym poziomie robimy dlugie i szybkie skrety");
+        levelRepository.save(levelBlack);
+
+        Level levelBrown = new Level();
+        levelBrown.setLevelColor("Poziom brazowy");
+        levelBrown.setLevelDescription("Na tym poziomie jedzimy krotkimi, cietymi skretami");
+        levelRepository.save(levelBrown);
+
+        Level levelSilver = new Level();
+        levelSilver.setLevelColor("Poziom srebrny");
+        levelSilver.setLevelDescription("Na tym poziomie potrafimy umiejetnie korzystac z pracy kijkow");
+        levelRepository.save(levelSilver);
+
+        Level levelGold = new Level();
+        levelGold.setLevelColor("Poziom zloty");
+        levelGold.setLevelDescription("Na tym poziomie jezdzimy sportowo");
+        levelRepository.save(levelGold);
+
+        String backLink = "<html><br><a href=\"/level/all\"> <<--- Powrot do listy Leveli </a></html>";
+        return "dodano levele" + backLink;
     }
 
     @GetMapping(value = "/all")

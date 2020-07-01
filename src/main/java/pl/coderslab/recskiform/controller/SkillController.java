@@ -21,16 +21,47 @@ public class SkillController {
         this.skillRepository = skillRepository;
     }
 
-    @RequestMapping("/populate")
+    @RequestMapping("/fill")
     @ResponseBody
     public String populateWithSkills(){
-        for (int i= 1; i < 8; i++) {
-            Skill skill = new Skill();
-            skill.setSkillName("skill"+i);
-            skill.setSkillDescription("opis skilla posiadanej umiejetnosci"+i);
-            skillRepository.save(skill);
-        }
-        return "dodano testowe skille";
+//        for (int i= 1; i < 8; i++) {
+//            Skill skill = new Skill();
+//            skill.setSkillName("skill"+i);
+//            skill.setSkillDescription("opis skilla posiadanej umiejetnosci"+i);
+//            skillRepository.save(skill);
+//        }
+        Skill skill1 = new Skill();
+        skill1.setSkillName("samodzielna jazda orczykiem");
+        skill1.setSkillDescription("Dziecko potrafi samodzielnie zlapac orczyk i wjechac nim na gore stoku bez wywrotki");
+        skillRepository.save(skill1);
+
+        Skill skill2 = new Skill();
+        skill2.setSkillName("samodzielna jazda krzeselkiem");
+        skill2.setSkillDescription("Dziecko potrafi samodzielnie wsiasc na krzeselko i zniego zsiasc");
+        skillRepository.save(skill2);
+
+        Skill skill3 = new Skill();
+        skill3.setSkillName("jazda plugiem");
+        skill3.setSkillDescription("Dziecko potrafi zjecach w dol stoku lukami pluznymi kontrolujac predkosc");
+        skillRepository.save(skill3);
+
+        Skill skill4 = new Skill();
+        skill4.setSkillName("skret rownolegly dlugi");
+        skill4.setSkillDescription("Dziecko potrafi wykonac dlugi skret prowadzac narty rownolegle i trzymajac je na krawedzi wykorzystujac cala szerokosc stoku");
+        skillRepository.save(skill4);
+
+        Skill skill5 = new Skill();
+        skill5.setSkillName("skret rownolegly krotki ");
+        skill5.setSkillDescription("Dziecko potrafi wykonywac krotkie skrety szybko zmieniajac krawedz prowadzac narty rownolegle");
+        skillRepository.save(skill5);
+
+        Skill skill6 = new Skill();
+        skill6.setSkillName("smig");
+        skill6.setSkillDescription("Dziecko potrafi zjechac w dol stoku wykonujac serie szybkich, krotkich skretow rownoleglych ze stałą predkością");
+        skillRepository.save(skill6);
+
+        String backLink = "<html><br><a href=\"/skill/all\"> <<--- Powrot do listy Umiejetnosci </a></html>";
+        return "dodano skille" +backLink;
     }
 
     @GetMapping(value = "/all")

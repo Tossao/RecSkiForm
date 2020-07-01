@@ -22,14 +22,16 @@ public class ChildController {
     private final ParentRepository parentRepository;
     private final SkillRepository skillRepository;
     private final UserRepository userRepository;
+    private final TeamRepository teamRepository;
 
-    public ChildController(ChildRepository childRepository, StyleRepository styleRepository, LevelRepository levelRepository, ParentRepository parentRepository, SkillRepository skillRepository, UserRepository userRepository) {
+    public ChildController(ChildRepository childRepository, StyleRepository styleRepository, LevelRepository levelRepository, ParentRepository parentRepository, SkillRepository skillRepository, UserRepository userRepository, TeamRepository teamRepository) {
         this.childRepository = childRepository;
         this.styleRepository = styleRepository;
         this.levelRepository = levelRepository;
         this.parentRepository = parentRepository;
         this.skillRepository = skillRepository;
         this.userRepository = userRepository;
+        this.teamRepository = teamRepository;
     }
 
     @GetMapping(value = "/all")
@@ -122,6 +124,11 @@ public class ChildController {
     @ModelAttribute("user")
     public List<User> userList() {
         return userRepository.findAll();
+    }
+
+    @ModelAttribute("team")
+    public List<Team> teamList() {
+        return teamRepository.findAll();
     }
 
 
